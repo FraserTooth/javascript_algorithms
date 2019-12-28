@@ -9,12 +9,44 @@ Write a function that takes a string and turns any and all "words" (see below) w
 */
 
 function abbreviate(string) {
-  const len = string.length;
-  if (len > 4) {
-    return string[0] + (len - 2) + string[len - 1];
-  } else {
+  if (string.length <= 4) {
     return string;
   }
+
+  const stringArray = string.split(" ");
+  const output = [];
+
+  for (let index = 0; index < stringArray.length; index++) {
+    const strings = stringArray[index];
+    let outputString = "";
+    //Handle Hyphen
+    const subStringArray = strings.split("-");
+    for (let index = 0; index < subStringArray.length; index++) {
+      let subString = subStringArray[index];
+      const subLen = subString.length;
+      let addBack = "";
+
+      //Handle Smalls
+      if (subLen <= 3) {
+        outputString += subString;
+        continue;
+      }
+
+      //Handle Commas
+      if (subString[subLen - 1] === ",") {
+        addBack = ",";
+        subString = subString.substring(0, subLen - 1);
+      }
+
+      const len = subString.length;
+      outputString += subString[0] + (len - 2) + subString[len - 1] + addBack;
+      if (index < subStringArray.length - 1) {
+        outputString += "-";
+      }
+    }
+    output.push(outputString);
+  }
+  return output.join(" ");
 }
 
 module.exports = { abbreviate };
