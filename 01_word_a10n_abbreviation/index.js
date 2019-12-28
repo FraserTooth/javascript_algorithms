@@ -8,6 +8,8 @@ Write a function that takes a string and turns any and all "words" (see below) w
 
 */
 
+// Can Probably be done better with a REGEX process
+
 function abbreviate(string) {
   if (string.length <= 4) {
     return string;

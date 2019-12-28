@@ -8,3 +8,5 @@ Its my strongest language at the moment, and given the impressive progress that 
 Plus I'm sometimes a little lazy and just want some loose typing 😂
 
 ## Challenges Done So Far:
+
+1. Word Abbreviation - Test of Text Manupulation
