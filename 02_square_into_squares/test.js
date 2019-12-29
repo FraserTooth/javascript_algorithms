@@ -8,7 +8,6 @@ const { decompose } = require("./index");
 describe("Word Abbreviation", () => {
   it("Passes Code Wars' Basic Tests", () => {
     Test.assertSimilar(decompose(2), null);
-    console.log("Bing");
     Test.assertSimilar(decompose(7), [2, 3, 6]);
   });
   it("Passes Code Wars' Harder Tests", () => {

@@ -13,30 +13,29 @@ function decompose(n) {
   const target = n * n;
 
   const checkPath = (num, path) => {
-    console.log("New Layer");
-    console.log({ num }, { path });
-
     let viablePath;
     //For Decending Numbers
     for (let value = num; value > 0; value--) {
       //If Output is Empty or the First Value remains larger than value under check
       if (!path[0] || path[0] > value) {
+        //Establish Base Case Calculations
         const pathTotal = path.reduce((tot, cur) => {
           return tot + cur * cur;
         }, 0);
-
         const potential = pathTotal + value * value;
 
         //If Potential Value is the right one, exit
         if (potential === target) {
           return [value, ...path];
         } else if (potential < target) {
-          return checkPath(value, [value, ...path]);
+          // If Possibility of Further Squares, Recurse
+          viablePath = checkPath(value, [value, ...path]);
+          //If Viable Path Found, Exit
+          if (viablePath) {
+            return viablePath;
+          }
         }
       }
-    }
-    if (viablePath) {
-      return viablePath;
     }
     return null;
   };
