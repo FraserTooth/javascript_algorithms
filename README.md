@@ -10,3 +10,4 @@ Plus I'm sometimes a little lazy and just want some loose typing 😂
 ## Challenges Done So Far:
 
 1. Word Abbreviation - Test of Text Manupulation (_From CodeWars_)
+2. Square Into Squares - A Tricky bit of Mathsy stuff, I solved using Recursion (_From CodeWars_)

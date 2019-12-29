@@ -12,35 +12,36 @@ For decompose(50) don't return [1, 1, 4, 9, 49] but [1, 3, 5, 8, 49] since [1, 1
 function decompose(n) {
   const target = n * n;
 
-  const checkPath = (num, output) => {
+  const checkPath = (num, path) => {
     console.log("New Layer");
-    console.log({ num }, { output });
+    console.log({ num }, { path });
+
+    let viablePath;
     //For Decending Numbers
     for (let value = num; value > 0; value--) {
       //If Output is Empty or the First Value remains larger than value under check
-      if (!output[0] || output[0] > value) {
-        const outputTotal = output.reduce((tot, cur) => {
+      if (!path[0] || path[0] > value) {
+        const pathTotal = path.reduce((tot, cur) => {
           return tot + cur * cur;
         }, 0);
 
-        const potential = outputTotal + value * value;
-        if (potential < target) {
-          return checkPath(value, [value, ...output]);
-        } else if (potential === target) {
-          return [value, ...output];
+        const potential = pathTotal + value * value;
+
+        //If Potential Value is the right one, exit
+        if (potential === target) {
+          return [value, ...path];
+        } else if (potential < target) {
+          return checkPath(value, [value, ...path]);
         }
       }
+    }
+    if (viablePath) {
+      return viablePath;
     }
     return null;
   };
 
-  for (let value = n - 1; value > 0; value--) {
-    let checked = checkPath(value, []);
-    if (checked) {
-      return checked;
-    }
-  }
-  return null;
+  return checkPath(n - 1, []);
 }
 
 module.exports = { decompose };
