@@ -19,6 +19,37 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
-const groupAnagrams = function(strs) {};
 
-module.exports = { groupAnagrams };
+const isAnagram = (inputWord, compareTo) => {
+  const inputLetters = [...inputWord];
+  for (let index = 0; index < inputLetters.length; index++) {
+    const letter = inputLetters[index];
+    const compare = new RegExp(letter, "g");
+    const inputCount = (inputWord.match(compare) || []).length;
+    const compCount = (compareTo.match(compare) || []).length;
+    if (inputCount !== compCount) return false;
+  }
+  return true;
+};
+
+const groupAnagrams = function(strs) {
+  const output = [[strs[0]]];
+
+  for (let index = 1; index < strs.length; index++) {
+    const string = strs[index];
+    let anagram = false;
+
+    for (let outputIndex = 0; outputIndex < output.length; outputIndex++) {
+      const mappedString = output[outputIndex][0];
+      if (isAnagram(string, mappedString)) {
+        output[outputIndex].push(string);
+        anagram = true;
+      }
+    }
+    if (!anagram) output.push([string]);
+  }
+
+  return output;
+};
+
+module.exports = { groupAnagrams, isAnagram };
