@@ -21,6 +21,9 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-const sortColors = function(nums) {};
+const sortColors = function(nums) {
+  console.log(nums);
+  nums[0] = 167;
+};
 
 module.exports = { sortColors };
