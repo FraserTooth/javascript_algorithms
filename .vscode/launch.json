@@ -15,7 +15,7 @@
         "--timeout",
         "999999",
         "--colors",
-        "${workspaceFolder}/04_add_two_numbers"
+        "${workspaceFolder}/06_unique_paths"
       ],
       "internalConsoleOptions": "openOnSessionStart"
     }
