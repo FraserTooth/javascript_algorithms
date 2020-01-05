@@ -12,3 +12,4 @@ Plus I'm sometimes a little lazy and just want some loose typing 😂
 1. Word Abbreviation - Test of Text Manupulation (_From CodeWars_)
 2. Square Into Squares - A Tricky bit of Mathsy stuff, I solved using Recursion (_From CodeWars_)
 3. FizzBuzz - Done using a string and ternary operators.
+4. Add Two Numbers - Sums Involving Linked Lists, Solved Using Recursion (_From LeetCode_)

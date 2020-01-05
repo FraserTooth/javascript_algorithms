@@ -37,8 +37,12 @@ const addTwoNumbers = function(l1, l2, carry = 0) {
       l2.next || new ListNode(0),
       1
     );
-  } else if (l1.next && l2.next) {
-    node.next = addTwoNumbers(l1.next, l2.next, 0);
+  } else if (l1.next || l2.next) {
+    node.next = addTwoNumbers(
+      l1.next || new ListNode(0),
+      l2.next || new ListNode(0),
+      0
+    );
   }
   return node;
 };

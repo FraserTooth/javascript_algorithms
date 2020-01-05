@@ -39,4 +39,16 @@ describe("Add Two Numbers", () => {
     const expected = { val: 8, next: { val: 1, next: null } };
     expect(output).to.deep.equal(expected);
   });
+  it("Handles Non Symmetrical Inputs", () => {
+    //Quick and Dirty Linked Lists
+    // const l1 = [1, 8];
+    const l1 = { val: 1, next: { val: 8, next: null } };
+    // const l2 = [0];
+    const l2 = { val: 0, next: null };
+
+    const output = addTwoNumbers(l1, l2);
+    // const expected = [1,8];
+    const expected = { val: 1, next: { val: 8, next: null } };
+    expect(output).to.deep.equal(expected);
+  });
 });
