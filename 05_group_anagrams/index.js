@@ -21,6 +21,16 @@
  */
 
 const isAnagram = (inputWord, compareTo) => {
+  //Handle Empty Strings
+  if (inputWord.length === 0) {
+    if (compareTo.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  } else if (inputWord.length !== compareTo.length) {
+    return false;
+  }
   const inputLetters = [...inputWord];
   for (let index = 0; index < inputLetters.length; index++) {
     const letter = inputLetters[index];
