@@ -1,7 +1,5 @@
 //Imports
-const deepEqualInAnyOrder = require("deep-equal-in-any-order");
 const chai = require("chai");
-chai.use(deepEqualInAnyOrder);
 const { expect } = chai;
 const { uniquePaths } = require("./index");
 
