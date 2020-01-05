@@ -15,7 +15,7 @@
         "--timeout",
         "999999",
         "--colors",
-        "${workspaceFolder}/02_square_into_squares"
+        "${workspaceFolder}/03_Fizzbuzz"
       ],
       "internalConsoleOptions": "openOnSessionStart"
     }
