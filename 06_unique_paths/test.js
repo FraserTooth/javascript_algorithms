@@ -12,4 +12,7 @@ describe("Group Anagrams", () => {
   it("7 x 3 Grid", () => {
     expect(uniquePaths(7, 3)).to.equal(28);
   });
+  it("20 x 13 in less than two seconds", () => {
+    expect(uniquePaths(20, 13)).to.equal(141120525);
+  });
 });

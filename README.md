@@ -14,3 +14,4 @@ Plus I'm sometimes a little lazy and just want some loose typing 😂
 3. FizzBuzz - Done using a string and ternary operators.
 4. Add Two Numbers - Sums Involving Linked Lists, Solved Using Recursion (_From LeetCode_)
 5. Group Anagrams - Identifying and Grouping Anagrams, Solves Using Regex and Loops (_From LeetCode_)
+6. Unique Paths - Dynamic Programming Problem, Solved Using Brute Force then Sped up Using Top Down Approach (_From LeetCode_)

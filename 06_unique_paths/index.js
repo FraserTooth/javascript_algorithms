@@ -29,7 +29,7 @@
  */
 
 //Same solution if starting at 0,0 (or 1,1) and going to top right
-const uniquePaths = function(m, n) {
+const uniquePathsBruteForce = function(m, n) {
   let numberOfPaths = 0;
 
   const pathFind = (x, y) => {
@@ -52,6 +52,29 @@ const uniquePaths = function(m, n) {
 
   pathFind(1, 1);
   return numberOfPaths;
+};
+
+// Dynamic Programming Method
+const uniquePaths = function(m, n) {
+  //Create Empty Matrix
+  const matrix = [];
+  for (var i = 0; i < m; i++) {
+    matrix[i] = new Array(n);
+  }
+
+  //Fill First Row with 1s
+  matrix[0].fill(1);
+  for (let x = 0; x < matrix.length; x++) {
+    const row = matrix[x];
+    //Fill First Column With 1s
+    matrix[x][0] = 1;
+    for (let y = 1; y < row.length; y++) {
+      //Each value is the sum of the one beside and above it
+      matrix[x][y] = matrix[x][y - 1] + (matrix[x - 1] ? matrix[x - 1][y] : 0);
+    }
+  }
+
+  return matrix[m - 1][n - 1];
 };
 
 module.exports = { uniquePaths };
