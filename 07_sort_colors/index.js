@@ -44,14 +44,17 @@ const countingSortsortColors = function(nums) {
 };
 
 const sortColors = function(nums) {
+  let twos = 0;
   for (let i = 0; i < nums.length; i++) {
     const num = nums[i];
     if (num === 0) {
       nums.splice(i, 1);
-      nums.unshift(num);
-    } else if (num === 2) {
+      nums.unshift(0);
+    } else if (num === 2 && i < nums.length - twos) {
       nums.splice(i, 1);
-      nums.push(num);
+      nums.push(2);
+      twos++;
+      i--;
     }
   }
 };
