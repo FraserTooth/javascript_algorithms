@@ -15,3 +15,4 @@ Plus I'm sometimes a little lazy and just want some loose typing 😂
 4. Add Two Numbers - Sums Involving Linked Lists, Solved Using Recursion (_From LeetCode_)
 5. Group Anagrams - Identifying and Grouping Anagrams, Solves Using Regex and Loops (_From LeetCode_)
 6. Unique Paths - Dynamic Programming Problem, Solved Using Brute Force then Sped up Using Top Down Approach (_From LeetCode_)
+7. Sort Colors - Sort Challenge, First Solved with Count Sort then Applied a Context Specific Sort (_From LeetCode_)

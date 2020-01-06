@@ -43,4 +43,17 @@ const countingSortsortColors = function(nums) {
   }
 };
 
+const sortColors = function(nums) {
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+    if (num === 0) {
+      nums.splice(i, 1);
+      nums.unshift(num);
+    } else if (num === 2) {
+      nums.splice(i, 1);
+      nums.push(num);
+    }
+  }
+};
+
 module.exports = { sortColors };
