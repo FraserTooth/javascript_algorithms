@@ -21,9 +21,26 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-const sortColors = function(nums) {
-  console.log(nums);
-  nums[0] = 167;
+const countingSortsortColors = function(nums) {
+  const map = {};
+  for (let i = 0; i < nums.length; i++) {
+    const element = nums[i];
+    if (!map[element]) {
+      map[element] = 1;
+    } else {
+      map[element]++;
+    }
+  }
+
+  let currenti = 0;
+  for (const num in map) {
+    if (map.hasOwnProperty(num)) {
+      for (let x = 0; x < map[num]; x++) {
+        nums[currenti] = parseInt(num);
+        currenti++;
+      }
+    }
+  }
 };
 
 module.exports = { sortColors };
