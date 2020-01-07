@@ -18,6 +18,7 @@
  * @return {string[]}
  */
 var letterCombinations = function(digits) {
+  if (digits.length === 0) return [];
   keymap = {
     "2": ["a", "b", "c"],
     "3": ["d", "e", "f"],
@@ -29,7 +30,10 @@ var letterCombinations = function(digits) {
     "9": ["w", "x", "y", "z"]
   };
   const output = [];
-  const nums = digits.split("");
+  const nums = digits.split("").filter(num => {
+    //Remove All Ones
+    return num !== "1";
+  });
 
   const findCombos = (numsLeft, stringSoFar = "") => {
     //Base Case
@@ -38,15 +42,14 @@ var letterCombinations = function(digits) {
       return;
     }
 
-    //Iterable
-    numsLeft.forEach(num => {
-      if (keymap.hasOwnProperty(num)) {
-        const possibleLetters = keymap[num];
-        possibleLetters.forEach(letter => {
-          findCombos(numsLeft.splice(0, 1), stringSoFar + letter);
-        });
-      }
-    });
+    const currentNum = numsLeft[0];
+    //Dive
+    if (keymap.hasOwnProperty(currentNum)) {
+      const possibleLetters = keymap[currentNum];
+      possibleLetters.forEach(letter => {
+        findCombos(numsLeft.slice(1, numsLeft.length), stringSoFar + letter);
+      });
+    }
   };
 
   findCombos(nums);

@@ -6,7 +6,7 @@ const { expect } = chai;
 const { letterCombinations } = require("./index");
 
 describe("Letter Combinations", () => {
-  it.only("Example Case", () => {
+  it("Example Case", () => {
     const input = "23";
     const expected = ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"];
     expect(letterCombinations(input)).to.deep.equalInAnyOrder(expected);
@@ -19,6 +19,11 @@ describe("Letter Combinations", () => {
   it("Handle 1s Case", () => {
     const input = "911";
     const expected = ["w", "x", "y", "z"];
+    expect(letterCombinations(input)).to.deep.equalInAnyOrder(expected);
+  });
+  it("Handle Empty Array", () => {
+    const input = "";
+    const expected = [];
     expect(letterCombinations(input)).to.deep.equalInAnyOrder(expected);
   });
   it("Repeated Case", () => {
