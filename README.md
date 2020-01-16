@@ -16,3 +16,4 @@ Plus I'm sometimes a little lazy and just want some loose typing 😂
 5. Group Anagrams - Identifying and Grouping Anagrams, Solves Using Regex and Loops (_From LeetCode_)
 6. Unique Paths - Dynamic Programming Problem, Solved Using Brute Force then Sped up Using Top Down Approach (_From LeetCode_)
 7. Sort Colors - Sort Challenge, First Solved with Count Sort then Applied a Context Specific Sort (_From LeetCode_)
+8. Flatten Array with Stack - Basic Challenge, but had to solve using a Stack instead of Recursion or something (_From a Coding Interview_)
