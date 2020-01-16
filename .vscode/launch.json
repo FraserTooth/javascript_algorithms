@@ -15,7 +15,7 @@
         "--timeout",
         "999999",
         "--colors",
-        "${workspaceFolder}/06_unique_paths"
+        "${workspaceFolder}/08_letters_combinations_phone_number"
       ],
       "internalConsoleOptions": "openOnSessionStart"
     }
