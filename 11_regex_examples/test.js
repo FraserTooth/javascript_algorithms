@@ -3,7 +3,7 @@ const deepEqualInAnyOrder = require("deep-equal-in-any-order");
 const chai = require("chai");
 chai.use(deepEqualInAnyOrder);
 const { expect } = chai;
-const { anythingButANewLine, matchDate } = require("./index");
+const { anythingButANewLine, matchDate, setOfInitials } = require("./index");
 
 describe("Regex Examples", () => {
   describe("Anything But a Newline", () => {
@@ -39,6 +39,19 @@ describe("Regex Examples", () => {
       const input = "06-121-2015";
       const expected = false;
       expect(matchDate(input)).to.deep.equalInAnyOrder(expected);
+    });
+  });
+
+  describe("Set of Intials", () => {
+    it("Case 1", () => {
+      const input = "AB CD EF";
+      const expected = true;
+      expect(setOfInitials(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 2", () => {
+      const input = "AB CDD EF";
+      const expected = false;
+      expect(setOfInitials(input)).to.deep.equalInAnyOrder(expected);
     });
   });
 });

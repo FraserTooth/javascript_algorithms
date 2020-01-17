@@ -16,4 +16,12 @@ const matchDate = Test_String => {
   return match;
 };
 
-module.exports = { anythingButANewLine, matchDate };
+const setOfInitials = Test_String => {
+  const Regex_Pattern = /\S\S\s\S\S\s\S\S/g;
+
+  const matches = Test_String.match(Regex_Pattern);
+  const match = matches != null && matches.length > 0;
+  return match;
+};
+
+module.exports = { anythingButANewLine, matchDate, setOfInitials };
