@@ -19,4 +19,4 @@ Plus I'm sometimes a little lazy and just want some loose typing 😂
 8. Letter Combinations Phone Number - Backtracking Problem, Solved using Recursion and a Lookup Table (_From LeetCode_)
 9. Flatten Array with Stack - Basic Challenge, but had to solve using a Stack instead of Recursion or something (_From a Coding Interview_)
 10. Histogram - Convert an Array into a Histogram, Solved with a Half Count Sort and Early Escape Loop (_From an Interview_)
-11. Regex Examples - Learning Regex for Interviews Etc.
+11. Regex Examples - Learning Regex for Efficient Searches etc. (_From Tutorial on HackerRank_)

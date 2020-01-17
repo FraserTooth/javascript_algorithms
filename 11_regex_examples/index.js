@@ -8,4 +8,12 @@ const anythingButANewLine = Test_String => {
   return match;
 };
 
-module.exports = { anythingButANewLine };
+const matchDate = Test_String => {
+  const Regex_Pattern = /\d\d\D\d\d\D\d\d\d\d/g;
+
+  const matches = Test_String.match(Regex_Pattern);
+  const match = matches != null && matches.length > 0;
+  return match;
+};
+
+module.exports = { anythingButANewLine, matchDate };
