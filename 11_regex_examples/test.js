@@ -91,4 +91,42 @@ describe("Regex Examples", () => {
       expect(stringOfLength(input)).to.deep.equalInAnyOrder(expected);
     });
   });
+
+  describe("Subset of Characters Match", () => {
+    it("Case 1", () => {
+      const input = "1203x.";
+      const expected = true;
+      expect(subsetChars(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 2", () => {
+      const input = "2203x.";
+      const expected = true;
+      expect(subsetChars(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 3", () => {
+      const input = "1003x.";
+      const expected = true;
+      expect(subsetChars(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 4", () => {
+      const input = "1003x,";
+      const expected = true;
+      expect(subsetChars(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 5", () => {
+      const input = "1003u,";
+      const expected = true;
+      expect(subsetChars(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 6", () => {
+      const input = "100Au,";
+      const expected = true;
+      expect(subsetChars(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 7", () => {
+      const input = "10sAu,";
+      const expected = true;
+      expect(subsetChars(input)).to.deep.equalInAnyOrder(expected);
+    });
+  });
 });
