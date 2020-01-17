@@ -32,4 +32,18 @@ const wordAndNon = Test_String => {
   return match;
 };
 
-module.exports = { anythingButANewLine, matchDate, setOfInitials, wordAndNon };
+const stringOfLength = Test_String => {
+  const Regex_Pattern = /^\d\w\w\w\w\.$/g;
+
+  const matches = Test_String.match(Regex_Pattern);
+  const match = matches != null && matches.length > 0;
+  return match;
+};
+
+module.exports = {
+  anythingButANewLine,
+  matchDate,
+  setOfInitials,
+  wordAndNon,
+  stringOfLength
+};

@@ -7,7 +7,8 @@ const {
   anythingButANewLine,
   matchDate,
   setOfInitials,
-  wordAndNon
+  wordAndNon,
+  stringOfLength
 } = require("./index");
 
 describe("Regex Examples", () => {
@@ -70,6 +71,24 @@ describe("Regex Examples", () => {
       const input = "www.hackerasgrank.com";
       const expected = false;
       expect(wordAndNon(input)).to.deep.equalInAnyOrder(expected);
+    });
+  });
+
+  describe("String of Certain Length", () => {
+    it("Case 1", () => {
+      const input = "0qwer.";
+      const expected = true;
+      expect(stringOfLength(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 2", () => {
+      const input = "Aqwer.";
+      const expected = false;
+      expect(stringOfLength(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 3", () => {
+      const input = "0qwer.a";
+      const expected = false;
+      expect(stringOfLength(input)).to.deep.equalInAnyOrder(expected);
     });
   });
 });
