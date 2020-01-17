@@ -20,11 +20,13 @@ const histogram = (data, buckets, min, max) => {
 
   const bucketWidth = (max - min) / buckets;
   for (num in counts) {
-    for (let i = 0; i < buckets; i++) {
+    let startFrom = 0;
+    for (let i = startFrom; i < buckets; i++) {
       const bucketBottom = i * bucketWidth + min;
       const bucketTop = (i + 1) * bucketWidth + min;
       if (num >= bucketBottom && num < bucketTop) {
         output[i] += counts[num];
+        startFrom = i;
         break;
       }
     }
