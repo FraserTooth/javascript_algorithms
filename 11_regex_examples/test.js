@@ -3,7 +3,12 @@ const deepEqualInAnyOrder = require("deep-equal-in-any-order");
 const chai = require("chai");
 chai.use(deepEqualInAnyOrder);
 const { expect } = chai;
-const { anythingButANewLine, matchDate, setOfInitials } = require("./index");
+const {
+  anythingButANewLine,
+  matchDate,
+  setOfInitials,
+  wordAndNon
+} = require("./index");
 
 describe("Regex Examples", () => {
   describe("Anything But a Newline", () => {
@@ -52,6 +57,19 @@ describe("Regex Examples", () => {
       const input = "AB CDD EF";
       const expected = false;
       expect(setOfInitials(input)).to.deep.equalInAnyOrder(expected);
+    });
+  });
+
+  describe("Words and Non Words", () => {
+    it("Case 1", () => {
+      const input = "www.hackerrank.com";
+      const expected = true;
+      expect(wordAndNon(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 2", () => {
+      const input = "www.hackerasgrank.com";
+      const expected = false;
+      expect(wordAndNon(input)).to.deep.equalInAnyOrder(expected);
     });
   });
 });

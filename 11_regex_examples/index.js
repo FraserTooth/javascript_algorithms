@@ -24,4 +24,12 @@ const setOfInitials = Test_String => {
   return match;
 };
 
-module.exports = { anythingButANewLine, matchDate, setOfInitials };
+const wordAndNon = Test_String => {
+  const Regex_Pattern = /\w\w\w\W\w\w\w\w\w\w\w\w\w\w\W\w\w\w/g;
+
+  const matches = Test_String.match(Regex_Pattern);
+  const match = matches != null && matches.length > 0;
+  return match;
+};
+
+module.exports = { anythingButANewLine, matchDate, setOfInitials, wordAndNon };
