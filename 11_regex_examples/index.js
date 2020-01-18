@@ -56,6 +56,14 @@ const antiSubsetChars = Test_String => {
   return match;
 };
 
+const charRange = Test_String => {
+  const Regex_Pattern = /^[a-z][1-9][^a-z][^A-Z][A-Z]/g;
+
+  const matches = Test_String.match(Regex_Pattern);
+  const match = matches != null && matches.length > 0;
+  return match;
+};
+
 module.exports = {
   anythingButANewLine,
   matchDate,
@@ -63,5 +71,6 @@ module.exports = {
   wordAndNon,
   stringOfLength,
   subsetChars,
-  antiSubsetChars
+  antiSubsetChars,
+  charRange
 };

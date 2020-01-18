@@ -10,7 +10,8 @@ const {
   wordAndNon,
   stringOfLength,
   subsetChars,
-  antiSubsetChars
+  antiSubsetChars,
+  charRange
 } = require("./index");
 
 describe("Regex Examples", () => {
@@ -147,6 +148,24 @@ describe("Regex Examples", () => {
       const input = "0hink?";
       const expected = false;
       expect(antiSubsetChars(input)).to.deep.equalInAnyOrder(expected);
+    });
+  });
+
+  describe("Char Ranges", () => {
+    it("Case 1", () => {
+      const input = "h4CkR";
+      const expected = true;
+      expect(charRange(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 2", () => {
+      const input = "h4Ckr";
+      const expected = false;
+      expect(charRange(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 3", () => {
+      const input = "H4CkR";
+      const expected = false;
+      expect(charRange(input)).to.deep.equalInAnyOrder(expected);
     });
   });
 });
