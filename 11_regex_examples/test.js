@@ -11,7 +11,8 @@ const {
   stringOfLength,
   subsetChars,
   antiSubsetChars,
-  charRange
+  charRange,
+  matchRepititions
 } = require("./index");
 
 describe("Regex Examples", () => {
@@ -166,6 +167,24 @@ describe("Regex Examples", () => {
       const input = "H4CkR";
       const expected = false;
       expect(charRange(input)).to.deep.equalInAnyOrder(expected);
+    });
+  });
+
+  describe("Repititions", () => {
+    it("Case 1", () => {
+      const input = "2222222222aaaaaaaaaa2222222222aaaaaaaaaa13 57";
+      const expected = true;
+      expect(matchRepititions(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 2", () => {
+      const input = "2222222222aaaannaaaa2222222222aaaaaaaaaa13 57";
+      const expected = true;
+      expect(matchRepititions(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 3", () => {
+      const input = "2222222222aaaaaaaaaa2222222222aaaaaaaaba13n57";
+      const expected = false;
+      expect(matchRepititions(input)).to.deep.equalInAnyOrder(expected);
     });
   });
 });

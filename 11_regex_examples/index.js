@@ -17,6 +17,7 @@ const matchDate = Test_String => {
 };
 
 const setOfInitials = Test_String => {
+  //Matching Whitespace or non whitespace
   const Regex_Pattern = /\S\S\s\S\S\s\S\S/g;
 
   const matches = Test_String.match(Regex_Pattern);
@@ -64,6 +65,14 @@ const charRange = Test_String => {
   return match;
 };
 
+const matchRepititions = Test_String => {
+  const Regex_Pattern = /^[a-zA-Z02468]{40}[13579\s]{5}$/g;
+
+  const matches = Test_String.match(Regex_Pattern);
+  const match = matches != null && matches.length > 0;
+  return match;
+};
+
 module.exports = {
   anythingButANewLine,
   matchDate,
@@ -72,5 +81,6 @@ module.exports = {
   stringOfLength,
   subsetChars,
   antiSubsetChars,
-  charRange
+  charRange,
+  matchRepititions
 };
