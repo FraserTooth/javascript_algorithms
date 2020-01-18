@@ -40,10 +40,19 @@ const stringOfLength = Test_String => {
   return match;
 };
 
+const subsetChars = Test_String => {
+  const Regex_Pattern = /^[123][120][xs0][30Aa][xsu][.,]$/g;
+
+  const matches = Test_String.match(Regex_Pattern);
+  const match = matches != null && matches.length > 0;
+  return match;
+};
+
 module.exports = {
   anythingButANewLine,
   matchDate,
   setOfInitials,
   wordAndNon,
-  stringOfLength
+  stringOfLength,
+  subsetChars
 };

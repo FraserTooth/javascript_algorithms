@@ -8,7 +8,8 @@ const {
   matchDate,
   setOfInitials,
   wordAndNon,
-  stringOfLength
+  stringOfLength,
+  subsetChars
 } = require("./index");
 
 describe("Regex Examples", () => {
