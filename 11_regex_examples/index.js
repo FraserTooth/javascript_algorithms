@@ -48,11 +48,20 @@ const subsetChars = Test_String => {
   return match;
 };
 
+const antiSubsetChars = Test_String => {
+  const Regex_Pattern = /^[^0123456789][^aeiou][^bcDf][^\r\n\t\f ][^AEIOU][^\.\,]$/g;
+
+  const matches = Test_String.match(Regex_Pattern);
+  const match = matches != null && matches.length > 0;
+  return match;
+};
+
 module.exports = {
   anythingButANewLine,
   matchDate,
   setOfInitials,
   wordAndNon,
   stringOfLength,
-  subsetChars
+  subsetChars,
+  antiSubsetChars
 };

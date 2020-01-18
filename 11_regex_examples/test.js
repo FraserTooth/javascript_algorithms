@@ -9,7 +9,8 @@ const {
   setOfInitials,
   wordAndNon,
   stringOfLength,
-  subsetChars
+  subsetChars,
+  antiSubsetChars
 } = require("./index");
 
 describe("Regex Examples", () => {
@@ -128,6 +129,24 @@ describe("Regex Examples", () => {
       const input = "10sAu,";
       const expected = true;
       expect(subsetChars(input)).to.deep.equalInAnyOrder(expected);
+    });
+  });
+
+  describe("String without subset", () => {
+    it("Case 1", () => {
+      const input = "think?";
+      const expected = true;
+      expect(antiSubsetChars(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 2", () => {
+      const input = "think.";
+      const expected = false;
+      expect(antiSubsetChars(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 3", () => {
+      const input = "0hink?";
+      const expected = false;
+      expect(antiSubsetChars(input)).to.deep.equalInAnyOrder(expected);
     });
   });
 });
