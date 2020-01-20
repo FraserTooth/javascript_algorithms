@@ -15,4 +15,31 @@ function ListNode(val) {
   this.next = null;
 }
 
-var oddEvenList = function(head) {};
+const oddEvenList = function(head) {
+  if (!head.val) return;
+  const oddVals = [];
+  const evenVals = [];
+
+  let currentOdd = head;
+  let currentEven = head.next;
+  while (currentOdd !== null && currentEven !== null) {
+    oddVals.unshift(currentOdd.val);
+    evenVals.unshift(currentEven.val);
+    currentOdd = currentEven.next;
+    currentEven = currentOdd.next;
+  }
+  if (currentOdd) oddVals.unshift(currentOdd.val);
+
+  let newList = null;
+  const vals = [...evenVals, ...oddVals];
+
+  for (let i = 0; i < vals.length; i++) {
+    const val = vals[i];
+    const temp = newList;
+    newList = new ListNode(val);
+    newList.next = temp;
+  }
+  return newList;
+};
+
+module.exports = { oddEvenList };
