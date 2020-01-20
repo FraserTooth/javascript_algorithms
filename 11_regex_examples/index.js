@@ -26,6 +26,8 @@ const setOfInitials = Test_String => {
 };
 
 const wordAndNon = Test_String => {
+  //w matches word characters (a, A, 1 and _)
+  //W is everything else
   const Regex_Pattern = /\w\w\w\W\w\w\w\w\w\w\w\w\w\w\W\w\w\w/g;
 
   const matches = Test_String.match(Regex_Pattern);
@@ -81,6 +83,21 @@ const matchVariableRepititions = Test_String => {
   return match;
 };
 
+const matchZeroOrMoreRepititions = Test_String => {
+  const Regex_Pattern = /^\d{2,}[a-z]*[A-Z]*$/g;
+
+  const matches = Test_String.match(Regex_Pattern);
+  const match = matches != null && matches.length > 0;
+  return match;
+};
+const matchOneOrMoreRepititions = Test_String => {
+  const Regex_Pattern = /^\d+[A-Z]+[a-z]+$/g;
+
+  const matches = Test_String.match(Regex_Pattern);
+  const match = matches != null && matches.length > 0;
+  return match;
+};
+
 module.exports = {
   anythingButANewLine,
   matchDate,
@@ -91,5 +108,7 @@ module.exports = {
   antiSubsetChars,
   charRange,
   matchRepititions,
-  matchVariableRepititions
+  matchVariableRepititions,
+  matchZeroOrMoreRepititions,
+  matchOneOrMoreRepititions
 };

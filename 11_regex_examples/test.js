@@ -13,7 +13,9 @@ const {
   antiSubsetChars,
   charRange,
   matchRepititions,
-  matchVariableRepititions
+  matchVariableRepititions,
+  matchZeroOrMoreRepititions,
+  matchOneOrMoreRepititions
 } = require("./index");
 
 describe("Regex Examples", () => {
@@ -204,6 +206,53 @@ describe("Regex Examples", () => {
       const input = "214KJASDNGKJAG...";
       const expected = false;
       expect(matchVariableRepititions(input)).to.deep.equalInAnyOrder(expected);
+    });
+  });
+
+  describe("Zero or More Repititions", () => {
+    it("Case 1", () => {
+      const input = "14";
+      const expected = true;
+      expect(matchZeroOrMoreRepititions(input)).to.deep.equalInAnyOrder(
+        expected
+      );
+    });
+    it("Case 2", () => {
+      const input = "14436546jasntjkastAJASGKLAJN";
+      const expected = true;
+      expect(matchZeroOrMoreRepititions(input)).to.deep.equalInAnyOrder(
+        expected
+      );
+    });
+    it("Case 3", () => {
+      const input = "1523613Ab";
+      const expected = false;
+      expect(matchZeroOrMoreRepititions(input)).to.deep.equalInAnyOrder(
+        expected
+      );
+    });
+  });
+  describe("One or More Repititions", () => {
+    it("Case 1", () => {
+      const input = "14AAlll";
+      const expected = true;
+      expect(matchOneOrMoreRepititions(input)).to.deep.equalInAnyOrder(
+        expected
+      );
+    });
+    it("Case 2", () => {
+      const input = "1Aa";
+      const expected = true;
+      expect(matchOneOrMoreRepititions(input)).to.deep.equalInAnyOrder(
+        expected
+      );
+    });
+    it("Case 3", () => {
+      const input = "AAABbbbb";
+      const expected = false;
+      expect(matchOneOrMoreRepititions(input)).to.deep.equalInAnyOrder(
+        expected
+      );
     });
   });
 });
