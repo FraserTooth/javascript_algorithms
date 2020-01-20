@@ -24,6 +24,22 @@
  * @return {number[]}
  */
 
-var inorderTraversal = function(root) {};
+var inorderTraversal = function(root) {
+  const stack = [];
+  const output = [];
+
+  stack.push(root);
+  while (stack.length !== 0) {
+    console.log(stack);
+    const node = stack.pop();
+    if (node.right) stack.push(node.right);
+    if (node.left) {
+      stack.push(node.left);
+    } else {
+      output.push(node.val);
+    }
+  }
+  return output;
+};
 
 module.exports = { inorderTraversal };
