@@ -98,7 +98,15 @@ const matchOneOrMoreRepititions = Test_String => {
   return match;
 };
 const regexGroups = Test_String => {
+  //Groups the characters inside the parentesis into a contiguous stream
   const Regex_Pattern = /(ok){3,}/g;
+
+  const matches = Test_String.match(Regex_Pattern);
+  const match = matches != null && matches.length > 0;
+  return match;
+};
+const alternativeMatching = Test_String => {
+  const Regex_Pattern = /^(Mr\.|Mrs\.|Ms\.|Dr\.|Er\.)[a-zA-Z]+$/g;
 
   const matches = Test_String.match(Regex_Pattern);
   const match = matches != null && matches.length > 0;
@@ -118,5 +126,6 @@ module.exports = {
   matchVariableRepititions,
   matchZeroOrMoreRepititions,
   matchOneOrMoreRepititions,
-  regexGroups
+  regexGroups,
+  alternativeMatching
 };

@@ -16,7 +16,8 @@ const {
   matchVariableRepititions,
   matchZeroOrMoreRepititions,
   matchOneOrMoreRepititions,
-  regexGroups
+  regexGroups,
+  alternativeMatching
 } = require("./index");
 
 describe("Regex Examples", () => {
@@ -271,6 +272,28 @@ describe("Regex Examples", () => {
       const input = "okok";
       const expected = false;
       expect(regexGroups(input)).to.deep.equalInAnyOrder(expected);
+    });
+  });
+  describe("Alternative Matching", () => {
+    it("Case 1", () => {
+      const input = "Mrs.Bums";
+      const expected = true;
+      expect(alternativeMatching(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 2", () => {
+      const input = "Mr.Face";
+      const expected = true;
+      expect(alternativeMatching(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 3", () => {
+      const input = "Rvd.Green";
+      const expected = false;
+      expect(alternativeMatching(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 4", () => {
+      const input = "Mr.V.K. Doshi";
+      const expected = false;
+      expect(alternativeMatching(input)).to.deep.equalInAnyOrder(expected);
     });
   });
 });
