@@ -12,7 +12,8 @@ const {
   subsetChars,
   antiSubsetChars,
   charRange,
-  matchRepititions
+  matchRepititions,
+  matchVariableRepititions
 } = require("./index");
 
 describe("Regex Examples", () => {
@@ -185,6 +186,24 @@ describe("Regex Examples", () => {
       const input = "2222222222aaaaaaaaaa2222222222aaaaaaaaba13n57";
       const expected = false;
       expect(matchRepititions(input)).to.deep.equalInAnyOrder(expected);
+    });
+  });
+
+  describe("Variable Repititions", () => {
+    it("Case 1", () => {
+      const input = "3threeormorealphabets.";
+      const expected = true;
+      expect(matchVariableRepititions(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 2", () => {
+      const input = "23hTyjoSDJGIOASOANGIAOVNADNVKJLADNKV...";
+      const expected = true;
+      expect(matchVariableRepititions(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 3", () => {
+      const input = "214KJASDNGKJAG...";
+      const expected = false;
+      expect(matchVariableRepititions(input)).to.deep.equalInAnyOrder(expected);
     });
   });
 });

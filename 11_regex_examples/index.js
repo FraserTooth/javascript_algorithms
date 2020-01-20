@@ -73,6 +73,14 @@ const matchRepititions = Test_String => {
   return match;
 };
 
+const matchVariableRepititions = Test_String => {
+  const Regex_Pattern = /^\d{1,2}[a-zA-Z]{3,}\.{0,3}$/g;
+
+  const matches = Test_String.match(Regex_Pattern);
+  const match = matches != null && matches.length > 0;
+  return match;
+};
+
 module.exports = {
   anythingButANewLine,
   matchDate,
@@ -82,5 +90,6 @@ module.exports = {
   subsetChars,
   antiSubsetChars,
   charRange,
-  matchRepititions
+  matchRepititions,
+  matchVariableRepititions
 };
