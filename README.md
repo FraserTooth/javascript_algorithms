@@ -20,4 +20,4 @@ Plus I'm sometimes a little lazy and just want some loose typing 😂
 9. Flatten Array with Stack - Basic Challenge, but had to solve using a Stack instead of Recursion or something (_From a Coding Interview_)
 10. Histogram - Convert an Array into a Histogram, Solved with a Half Count Sort and Early Escape Loop (_From an Interview_)
 11. Regex Examples - Learning Regex for Efficient Searches etc. (_From Tutorial on HackerRank_)
-12. Odd Even Linked List - Reordering a Linked List, done using brute force (_From LeetCode_)
+12. Odd Even Linked List - Reordering a Linked List, done using brute force, reworked using pointer solution (_From LeetCode_)

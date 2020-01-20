@@ -20,26 +20,24 @@ const oddEvenList = function(head) {
   const oddVals = [];
   const evenVals = [];
 
-  let currentOdd = head;
-  let currentEven = head.next;
-  while (currentOdd !== null && currentEven !== null) {
-    oddVals.unshift(currentOdd.val);
-    evenVals.unshift(currentEven.val);
-    currentOdd = currentEven.next;
-    if (currentOdd) currentEven = currentOdd.next;
-  }
-  if (currentOdd) oddVals.unshift(currentOdd.val);
+  let odd = head;
+  let even = head.next;
+  while (odd.next && odd.next.next) {
+    //Even Pointer
+    let evenPointer = odd.next;
 
-  let newList = null;
-  const vals = [...evenVals, ...oddVals];
+    //Connect Even to Next Even
+    odd.next = odd.next.next;
 
-  for (let i = 0; i < vals.length; i++) {
-    const val = vals[i];
-    const temp = newList;
-    newList = new ListNode(val);
-    newList.next = temp;
+    //Connect Odd to Next Odd
+    odd = odd.next;
+
+    //Connect Even Chain to Next Even
+    evenPointer.next = odd.next;
   }
-  return newList;
+  //Connect Even to Odd Chain
+  odd.next = even;
+  return head;
 };
 
 module.exports = { oddEvenList };

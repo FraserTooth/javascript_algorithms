@@ -2,7 +2,7 @@
 const { expect } = require("chai");
 const { oddEvenList } = require("./index");
 
-describe("Add Two Numbers", () => {
+describe("Odd Even Linked List", () => {
   it("Base Case", () => {
     // Input: 1->2->3->4->5->NULL
     const input = {
