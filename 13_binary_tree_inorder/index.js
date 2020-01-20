@@ -27,15 +27,21 @@
 var inorderTraversal = function(root) {
   const stack = [];
   const output = [];
+  if (!root) return output;
 
   stack.push(root);
   while (stack.length !== 0) {
-    console.log(stack);
     const node = stack.pop();
+    //Push Right onto the Stack
     if (node.right) stack.push(node.right);
+    //If there is a Left
     if (node.left) {
+      //Push a scraped node(to avoid loops) back onto the stack
+      stack.push({ val: node.val });
+      //Push Left onto the stack
       stack.push(node.left);
     } else {
+      //If no left or right, push to output
       output.push(node.val);
     }
   }
