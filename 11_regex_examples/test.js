@@ -15,7 +15,8 @@ const {
   matchRepititions,
   matchVariableRepititions,
   matchZeroOrMoreRepititions,
-  matchOneOrMoreRepititions
+  matchOneOrMoreRepititions,
+  regexGroups
 } = require("./index");
 
 describe("Regex Examples", () => {
@@ -253,6 +254,23 @@ describe("Regex Examples", () => {
       expect(matchOneOrMoreRepititions(input)).to.deep.equalInAnyOrder(
         expected
       );
+    });
+  });
+  describe("Regex Groups", () => {
+    it("Case 1", () => {
+      const input = "okokok";
+      const expected = true;
+      expect(regexGroups(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 2", () => {
+      const input = "okokokok";
+      const expected = true;
+      expect(regexGroups(input)).to.deep.equalInAnyOrder(expected);
+    });
+    it("Case 3", () => {
+      const input = "okok";
+      const expected = false;
+      expect(regexGroups(input)).to.deep.equalInAnyOrder(expected);
     });
   });
 });

@@ -97,6 +97,13 @@ const matchOneOrMoreRepititions = Test_String => {
   const match = matches != null && matches.length > 0;
   return match;
 };
+const regexGroups = Test_String => {
+  const Regex_Pattern = /(ok){3,}/g;
+
+  const matches = Test_String.match(Regex_Pattern);
+  const match = matches != null && matches.length > 0;
+  return match;
+};
 
 module.exports = {
   anythingButANewLine,
@@ -110,5 +117,6 @@ module.exports = {
   matchRepititions,
   matchVariableRepititions,
   matchZeroOrMoreRepititions,
-  matchOneOrMoreRepititions
+  matchOneOrMoreRepititions,
+  regexGroups
 };
