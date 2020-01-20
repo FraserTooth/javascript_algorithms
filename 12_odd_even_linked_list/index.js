@@ -16,7 +16,7 @@ function ListNode(val) {
 }
 
 const oddEvenList = function(head) {
-  if (!head.val) return;
+  if (!head) return head;
   const oddVals = [];
   const evenVals = [];
 
@@ -26,7 +26,7 @@ const oddEvenList = function(head) {
     oddVals.unshift(currentOdd.val);
     evenVals.unshift(currentEven.val);
     currentOdd = currentEven.next;
-    currentEven = currentOdd.next;
+    if (currentOdd) currentEven = currentOdd.next;
   }
   if (currentOdd) oddVals.unshift(currentOdd.val);
 
