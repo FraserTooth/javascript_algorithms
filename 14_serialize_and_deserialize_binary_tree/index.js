@@ -94,11 +94,11 @@ const deserialize = function(string) {
       rightVal = parseInt(array[rightIndex]);
     }
 
-    if (leftVal) {
+    if (leftVal || leftVal === 0) {
       nodeRef.left = new TreeNode(leftVal);
       buildTree(leftIndex, nodeRef.left);
     }
-    if (rightVal) {
+    if (rightVal || rightVal === 0) {
       nodeRef.right = new TreeNode(rightVal);
       buildTree(rightIndex, nodeRef.right);
     }
