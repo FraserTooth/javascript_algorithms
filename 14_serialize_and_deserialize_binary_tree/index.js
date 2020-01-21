@@ -36,6 +36,9 @@ function TreeNode(val) {
 }
 
 const serialize = function(root) {
+  if (!root || !root.val) {
+    return "[]";
+  }
   const vals = [];
 
   const queue = [];
@@ -70,6 +73,9 @@ const serialize = function(root) {
  * @return {TreeNode}
  */
 const deserialize = function(string) {
+  if (string === "[]" || string.length < 2) {
+    return null;
+  }
   const array = string.substring(1, string.length - 1).split(",");
 
   let tree = new TreeNode(parseInt(array[0]));
@@ -77,8 +83,16 @@ const deserialize = function(string) {
   const buildTree = (index, nodeRef) => {
     const leftIndex = index * 2 + 1;
     const rightIndex = index * 2 + 2;
-    const leftVal = parseInt(array[leftIndex]) || null;
-    const rightVal = parseInt(array[rightIndex]) || null;
+    let leftVal = null;
+    let rightVal = null;
+
+    if (array[leftIndex]) {
+      leftVal = parseInt(array[leftIndex]);
+    }
+
+    if (array[rightIndex]) {
+      rightVal = parseInt(array[rightIndex]);
+    }
 
     if (leftVal) {
       nodeRef.left = new TreeNode(leftVal);

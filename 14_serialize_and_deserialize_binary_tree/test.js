@@ -51,6 +51,26 @@ describe("Serialize, Deserialize Binary Tree", () => {
 
       expect(output).to.deep.equal(expected);
     });
+    it("Empty Case", () => {
+      const input = {};
+      const expected = "[]";
+
+      const output = serialize(input);
+
+      expect(output).to.deep.equal(expected);
+    });
+    it("Falsy Case", () => {
+      const input = {
+        val: -1,
+        left: { val: 0, left: null, right: null },
+        right: { val: 1, left: null, right: null }
+      };
+      const expected = "[-1,0,1]";
+
+      const output = serialize(input);
+
+      expect(output).to.deep.equal(expected);
+    });
   });
 
   describe("Deserialize", () => {
@@ -94,6 +114,26 @@ describe("Serialize, Deserialize Binary Tree", () => {
         }
       };
       const input = "[1,2,3,null,null,4,5]";
+
+      const output = deserialize(input);
+
+      expect(output).to.deep.equal(expected);
+    });
+    it("Empty Case", () => {
+      const expected = null;
+
+      const input = "[]";
+      const output = deserialize(input);
+
+      expect(output).to.deep.equal(expected);
+    });
+    it("Falsy Case", () => {
+      const input = "[-1,0,1]";
+      const expected = {
+        val: -1,
+        left: { val: 0, left: null, right: null },
+        right: { val: 1, left: null, right: null }
+      };
 
       const output = deserialize(input);
 
