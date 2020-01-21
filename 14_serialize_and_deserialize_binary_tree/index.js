@@ -28,7 +28,40 @@
  * @param {TreeNode} root
  * @return {string}
  */
-var serialize = function(root) {};
+
+function TreeNode(val) {
+  this.val = val;
+  this.left = null;
+  this.right = null;
+}
+
+const serialize = function(root) {
+  const vals = [];
+
+  const queue = [];
+  queue.unshift(root);
+  while (queue.length > 0) {
+    if (
+      queue.every(item => {
+        return item === null;
+      })
+    ) {
+      break;
+    }
+    const node = queue.pop();
+    if (node) {
+      vals.push(node.val);
+    } else {
+      queue.unshift(null, null);
+      vals.push("null");
+      continue;
+    }
+    queue.unshift(node.left);
+    queue.unshift(node.right);
+  }
+
+  return "[" + vals.join(",") + "]";
+};
 
 /**
  * Decodes your encoded data to tree.
@@ -36,9 +69,34 @@ var serialize = function(root) {};
  * @param {string} data
  * @return {TreeNode}
  */
-var deserialize = function(data) {};
+const deserialize = function(string) {
+  const array = string.substring(1, string.length - 1).split(",");
+
+  let tree = new TreeNode(parseInt(array[0]));
+
+  const buildTree = (index, nodeRef) => {
+    const leftIndex = index * 2 + 1;
+    const rightIndex = index * 2 + 2;
+    const leftVal = parseInt(array[leftIndex]) || null;
+    const rightVal = parseInt(array[rightIndex]) || null;
+
+    if (leftVal) {
+      nodeRef.left = new TreeNode(leftVal);
+      buildTree(leftIndex, nodeRef.left);
+    }
+    if (rightVal) {
+      nodeRef.right = new TreeNode(rightVal);
+      buildTree(rightIndex, nodeRef.right);
+    }
+    return nodeRef;
+  };
+
+  return buildTree(0, tree);
+};
 
 /**
  * Your functions will be called as such:
  * deserialize(serialize(root));
  */
+
+module.exports = { serialize, deserialize };
