@@ -36,7 +36,7 @@ function TreeNode(val) {
 }
 
 const serialize = function(root) {
-  if (!root || !root.val) {
+  if (!root) {
     return "[]";
   }
   const vals = [];
@@ -76,36 +76,33 @@ const deserialize = function(string) {
   if (string === "[]" || string.length < 2) {
     return null;
   }
-  const array = string.substring(1, string.length - 1).split(",");
+  const output = string
+    .substring(1, string.length - 1)
+    .split(",")
+    .map((val, i, array) => {
+      if (val === "null") return null;
+      let thisNode;
+      if (!(val instanceof TreeNode)) {
+        const num = parseInt(val);
+        thisNode = new TreeNode(num);
+      } else {
+        thisNode = val;
+      }
 
-  let tree = new TreeNode(parseInt(array[0]));
+      const leftIndex = i * 2 + 1;
+      const rightIndex = i * 2 + 2;
 
-  const buildTree = (index, nodeRef) => {
-    const leftIndex = index * 2 + 1;
-    const rightIndex = index * 2 + 2;
-    let leftVal = null;
-    let rightVal = null;
-
-    if (array[leftIndex]) {
-      leftVal = parseInt(array[leftIndex]);
-    }
-
-    if (array[rightIndex]) {
-      rightVal = parseInt(array[rightIndex]);
-    }
-
-    if (leftVal || leftVal === 0) {
-      nodeRef.left = new TreeNode(leftVal);
-      buildTree(leftIndex, nodeRef.left);
-    }
-    if (rightVal || rightVal === 0) {
-      nodeRef.right = new TreeNode(rightVal);
-      buildTree(rightIndex, nodeRef.right);
-    }
-    return nodeRef;
-  };
-
-  return buildTree(0, tree);
+      if (array[leftIndex] !== undefined && array[leftIndex] !== "null") {
+        array[leftIndex] = new TreeNode(parseInt(array[leftIndex]));
+        thisNode.left = array[leftIndex];
+      }
+      if (array[rightIndex] !== undefined && array[rightIndex] !== "null") {
+        array[rightIndex] = new TreeNode(parseInt(array[rightIndex]));
+        thisNode.right = array[rightIndex];
+      }
+      return thisNode;
+    });
+  return output[0];
 };
 
 /**

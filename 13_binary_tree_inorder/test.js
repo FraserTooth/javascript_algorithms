@@ -2,7 +2,7 @@
 const { expect } = require("chai");
 const { inorderTraversal } = require("./index");
 
-describe("Odd Even Linked List", () => {
+describe("Binary Tree Inorder", () => {
   it("Base Case", () => {
     const input = {
       val: 1,
