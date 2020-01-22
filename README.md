@@ -24,3 +24,4 @@ I've tended to focus on CS concepts and data structures, I also spent time here 
 11. Regex Examples - Learning Regex for Efficient Searches etc. (_From Tutorial on HackerRank_)
 12. Odd Even Linked List - Reordering a Linked List, done using brute force, reworked using pointer solution (_From LeetCode_)
 13. Binary Tree Traverse In-Order - Binary Tree Traversal, Implemented Iteratively Using Stack (_From LeetCode_)
+14. Serialize and Deserialize Binary Tree - Binary Tree Work, Implemented Using Queue and Iterative Solution but may not be the most efficient (_From LeetCode_)
