@@ -41,7 +41,10 @@ const lengthOfLongestSubstring = function(s) {
         if(!dequeue.includes(letter)){
             dequeue.push(letter)
         } else {
-            dequeue.shift()
+            while(dequeue.includes(letter)){
+                dequeue.shift()
+            }
+            dequeue.push(letter)
         }
         longest = dequeue.length > longest ? dequeue.length : longest
     }
