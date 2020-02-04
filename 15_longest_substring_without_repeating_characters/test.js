@@ -47,5 +47,13 @@ describe("Longest Substring without Repeats", () => {
 
       expect(output).to.deep.equal(expected);
     });
+    it("Example 3", () => {
+      const input = "aab";
+      const expected = 2;
+
+      const output = lengthOfLongestSubstring(input);
+
+      expect(output).to.deep.equal(expected);
+    });
   });
 });

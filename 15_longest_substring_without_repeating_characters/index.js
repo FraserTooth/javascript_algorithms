@@ -23,8 +23,29 @@
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
-    
+const lengthOfLongestSubstring = function(s) {
+    if(typeof s !== "string"){
+        return 0
+    }
+    let longest = 0;
+    if(s.length === 0){
+        return 0
+    }else if(s.length === 1){
+        return 1
+    }
+
+    const dequeue = [];
+
+    for (let i = 0; i < s.length; i++) {
+        const letter = s[i];
+        if(!dequeue.includes(letter)){
+            dequeue.push(letter)
+        } else {
+            dequeue.shift()
+        }
+        longest = dequeue.length > longest ? dequeue.length : longest
+    }
+    return longest
 };
 
 
