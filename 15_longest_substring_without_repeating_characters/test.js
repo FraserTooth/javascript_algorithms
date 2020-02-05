@@ -3,7 +3,7 @@ const { expect } = require("chai");
 const { lengthOfLongestSubstring } = require("./index");
 
 describe("Longest Substring without Repeats", () => {
-  describe("Serialize", () => {
+
     it("Base Case", () => {
       const input = "abcabcbb";
 
@@ -55,5 +55,4 @@ describe("Longest Substring without Repeats", () => {
 
       expect(output).to.deep.equal(expected);
     });
-  });
 });

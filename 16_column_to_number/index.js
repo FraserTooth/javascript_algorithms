@@ -33,7 +33,22 @@
  * @return {number}
  */
 const titleToNumber = function(s) {
+    let output = 0
+    if(typeof s !== "string" || s.length === 0){
+        return output
+    }
+
     
+    const asciiStart = 64
+    const numbers = [...s].map(letter => {
+        return letter.charCodeAt(0)-asciiStart
+    })
+
+    numbers.forEach((num,index) => {
+        const charPow = s.length - index - 1
+        output += (Math.pow(26,charPow))*num
+    })
+    return output
 };
 
 module.exports = {titleToNumber}

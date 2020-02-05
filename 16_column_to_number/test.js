@@ -2,8 +2,7 @@
 const { expect } = require("chai");
 const { titleToNumber } = require("./index");
 
-describe("Longest Substring without Repeats", () => {
-  describe("Serialize", () => {
+describe("Column To Number", () => {
     it("Base Case", () => {
       const input = "A";
 
@@ -15,7 +14,7 @@ describe("Longest Substring without Repeats", () => {
 
       const input2 = "Z";
 
-      const output2 = titleToNumber(input);
+      const output2 = titleToNumber(input2);
 
       const expected2 = 26;
 
@@ -52,5 +51,12 @@ describe("Longest Substring without Repeats", () => {
 
       expect(output).to.deep.equal(expected);
     });
-  });
+    it("Example 4", () => {
+      const input = "AAA";
+      const expected = 703;
+
+      const output = titleToNumber(input);
+
+      expect(output).to.deep.equal(expected);
+    });
 });
